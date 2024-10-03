@@ -1,5 +1,4 @@
 
-
 services:
   frontend:
     build: ./frontend
@@ -9,7 +8,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
     develop:
       watch:
         - path: ./frontend/package.json
@@ -42,7 +41,7 @@ services:
   mongodb:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongodb_data:/data/db
 
